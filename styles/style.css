@@ -115,13 +115,14 @@ main {
         padding: 50px;
         background: black;
         color: white;
-        h2 {
-            font-size: 56px;
-            line-height: 1;
-            white-space: normal;
-            word-break: normal;
-            overflow-wrap: normal;
-        }
+    }
+
+    h2 {
+        font-size: 56px;
+        line-height: 1;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
     }
 
 
@@ -228,6 +229,10 @@ footer {
 
 /* Desktop-only navigation borders */
 @media (min-width: 960px) {
+    /* Desktop adjustments */
+    h2 {
+        font-size: 96px;
+    }
     .nav li:not(:last-child):not(.nav-social-group) {
         border-right: 1px solid black;
     }

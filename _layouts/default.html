@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https: https://formsubmit.co https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://formsubmit.co;">
+    <meta http-equiv="Permissions-Policy"
+        content="accelerometer=(), ambient-light-sensor=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=()">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}Adriano Barsali - Team Leader, Senior Software Developer, Speaker, and Tech Community Leader.{% endif %}">
+    <link rel="preload" href="{{ '/fonts/Lovelo-Black.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="{{ '/styles/font-family.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/reset.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | relative_url }}">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X2WN370E7W"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-X2WN370E7W');
+    </script>
+</head>
+
+<body data-baseurl="{{ '/' | relative_url }}">
+
+    <main>
+        {{ content }}
+    </main>
+
+    <!-- Newsletter Modal -->
+    <div id="newsletter-modal" class="modal-backdrop" aria-hidden="true" role="dialog">
+        <div class="modal-content glass-card">
+            <button class="modal-close" id="newsletter-modal-close" aria-label="Close">&times;</button>
+            <span class="newsletter-icon">🏴‍☠️</span>
+
+            <!-- ITALIAN CONTENT -->
+            <div data-lang-block="it">
+                <h2 class="page-title" style="font-size: 26px; margin-bottom: 12px;">Unisciti alla Ciurma</h2>
+                <p class="modal-description">
+                    Ricevi direttamente nella tua email riflessioni su leadership software, sicurezza psicologica, gestione del team e i prossimi talk dal vivo.
+                </p>
+                <form class="newsletter-form" onsubmit="handleModalSubscribe(event, 'it')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Inserisci la tua email..." required id="modal-email-it">
+                        <button type="submit" class="subscribe-btn">ISCRIVITI 🚀</button>
+                    </div>
+                    <div class="newsletter-success" id="modal-success-it">
+                        🎉 Benvenuto a bordo! Ti sei iscritto con successo.
+                    </div>
+                </form>
+            </div>
+
+            <!-- ENGLISH CONTENT -->
+            <div data-lang-block="en">
+                <h2 class="page-title" style="font-size: 26px; margin-bottom: 12px;">Join the Crew</h2>
+                <p class="modal-description">
+                    Get insights on software leadership, team psychological safety, ego management, and upcoming live talk announcements.
+                </p>
+                <form class="newsletter-form" onsubmit="handleModalSubscribe(event, 'en')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required id="modal-email-en">
+                        <button type="submit" class="subscribe-btn">SUBSCRIBE 🚀</button>
+                    </div>
+                    <div class="newsletter-success" id="modal-success-en">
+                        🎉 Welcome aboard! You have successfully subscribed.
+                    </div>
+                </form>
+            </div>
+
+            <!-- PORTUGUESE CONTENT -->
+            <div data-lang-block="pt-br">
+                <h2 class="page-title" style="font-size: 26px; margin-bottom: 12px;">Junte-se à Tripulação</h2>
+                <p class="modal-description">
+                    Receba no seu e-mail reflexões sobre liderança de software, segurança psicológica, gestão de equipe e novidades sobre eventos.
+                </p>
+                <form class="newsletter-form" onsubmit="handleModalSubscribe(event, 'pt-br')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Digite seu e-mail..." required id="modal-email-pt-br">
+                        <button type="submit" class="subscribe-btn">INSCREVER-SE 🚀</button>
+                    </div>
+                    <div class="newsletter-success" id="modal-success-pt-br">
+                        🎉 Bem-vindo a bordo! Você se inscreveu com sucesso.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const i18nDict = {
+                en: {
+                    subtitle: "Team Leader | Developer | Pirate",
+                    blog_title: "Ideas, Tutorials, Articles...",
+                    events_title: "Events & Speeches",
+                    back_home: "← Back to Home",
+                    event_passed: "Passed",
+                    nav_home: "Home",
+                    nav_about: "About Me",
+                    nav_newsletter: "Newsletter"
+                },
+                "pt-br": {
+                    subtitle: "Team Leader | Developer | Pirate",
+                    blog_title: "Ideias, Tutoriais, Artigos...",
+                    events_title: "Eventos e Palestras",
+                    back_home: "← Voltar para o Início",
+                    event_passed: "Encerrado",
+                    nav_home: "Início",
+                    nav_about: "Sobre Mim",
+                    nav_newsletter: "Newsletter"
+                },
+                it: {
+                    subtitle: "Team Leader | Developer | Pirate",
+                    blog_title: "Idee, Tutorial, Articoli...",
+                    events_title: "Eventi e Interventi",
+                    back_home: "← Torna alla Home",
+                    event_passed: "Concluso",
+                    nav_home: "Home",
+                    nav_about: "Su di Me",
+                    nav_newsletter: "Newsletter"
+                }
+            };
+
+            window.openNewsletterModal = function() {
+                const modal = document.getElementById('newsletter-modal');
+                if (modal) {
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                }
+            };
+
+            window.closeNewsletterModal = function() {
+                const modal = document.getElementById('newsletter-modal');
+                if (modal) {
+                    modal.classList.remove('open');
+                    modal.setAttribute('aria-hidden', 'true');
+                }
+            };
+
+            window.handleModalSubscribe = function(event, lang) {
+                event.preventDefault();
+                const input = document.getElementById('modal-email-' + lang);
+                const successMsg = document.getElementById('modal-success-' + lang);
+                const btn = event.target.querySelector('button[type="submit"]');
+
+                if (input && input.value) {
+                    const email = input.value;
+                    if (btn) {
+                        btn.disabled = true;
+                        btn.textContent = '...';
+                    }
+
+                    fetch('https://formsubmit.co/ajax/drixbarsali@gmail.com', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: email,
+                            _subject: '🏴‍☠️ Nuovo iscritto alla Newsletter di Adriano Barsali!',
+                            language: lang
+                        })
+                    })
+                    .then(function(response) {
+                        return response.json();
+                    })
+                    .then(function(data) {
+                        const subscribers = JSON.parse(localStorage.getItem('newsletter_subscribers') || '[]');
+                        subscribers.push({ email: email, date: new Date().toISOString(), lang: lang });
+                        localStorage.setItem('newsletter_subscribers', JSON.stringify(subscribers));
+
+                        if (successMsg) {
+                            successMsg.style.display = 'block';
+                        }
+                        input.value = '';
+                    })
+                    .catch(function(error) {
+                        console.error('Error submitting form:', error);
+                        if (successMsg) {
+                            successMsg.style.display = 'block';
+                        }
+                        input.value = '';
+                    })
+                    .finally(function() {
+                        if (btn) {
+                            btn.disabled = false;
+                            btn.textContent = lang === 'it' ? 'ISCRIVITI 🚀' : (lang === 'pt-br' ? 'INSCREVER-SE 🚀' : 'SUBSCRIBE 🚀');
+                        }
+                    });
+                }
+            };
+
+            function getParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+
+            function initLang() {
+                const urlLang = getParam('lang');
+                const storedLang = localStorage.getItem('site_lang');
+                const postLang = window.currentPostLang;
+
+                let lang = 'en';
+                if (postLang && i18nDict[postLang]) {
+                    lang = postLang;
+                } else if (urlLang && i18nDict[urlLang]) {
+                    lang = urlLang;
+                } else if (storedLang && i18nDict[storedLang]) {
+                    lang = storedLang;
+                }
+
+                applyLang(lang);
+            }
+
+            function applyLang(lang) {
+                if (!i18nDict[lang]) lang = 'en';
+                localStorage.setItem('site_lang', lang);
+                document.documentElement.lang = lang;
+
+                // Update active class on buttons
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    const btnLang = btn.getAttribute('data-lang-code');
+                    if (btnLang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Update text nodes with data-i18n
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (i18nDict[lang] && i18nDict[lang][key]) {
+                        el.textContent = i18nDict[lang][key];
+                    }
+                });
+
+                // Toggle language blocks
+                document.querySelectorAll('[data-lang-block]').forEach(el => {
+                    const blockLang = el.getAttribute('data-lang-block');
+                    if (blockLang === lang) {
+                        el.style.display = '';
+                    } else {
+                        el.style.display = 'none';
+                    }
+                });
+
+                // Filter cards on index page
+                const cards = document.querySelectorAll('.blog-card[data-lang]');
+                if (cards.length > 0) {
+                    cards.forEach(card => {
+                        const cardLang = card.getAttribute('data-lang');
+                        if (cardLang === lang) {
+                            card.style.display = '';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    // Check sections visibility
+                    document.querySelectorAll('.blog-section').forEach(section => {
+                        const sectionCards = section.querySelectorAll('.blog-card[data-lang="' + lang + '"]');
+                        if (sectionCards.length === 0) {
+                            section.style.display = 'none';
+                        } else {
+                            section.style.display = '';
+                        }
+                    });
+                }
+
+                // Dynamic check for passed events
+                const todayStr = new Date().toISOString().split('T')[0];
+                document.querySelectorAll('.blog-card[data-event-date]').forEach(card => {
+                    const eventDate = card.getAttribute('data-event-date');
+                    if (eventDate && eventDate < todayStr) {
+                        card.classList.add('blog-card--passed');
+                        const labelsDiv = card.querySelector('.blog-card__labels');
+                        if (labelsDiv && !labelsDiv.querySelector('.blog-card__label--passed')) {
+                            const badge = document.createElement('span');
+                            badge.className = 'blog-card__label blog-card__label--passed';
+                            badge.setAttribute('data-i18n', 'event_passed');
+                            badge.textContent = (i18nDict[lang] && i18nDict[lang].event_passed) ? i18nDict[lang].event_passed : 'Passed';
+                            labelsDiv.appendChild(badge);
+                        }
+                    }
+                });
+            }
+
+            // Attach click handlers
+            document.addEventListener('click', function (e) {
+                const btn = e.target.closest('.lang-btn');
+                if (btn) {
+                    const targetLang = btn.getAttribute('data-lang-code');
+                    if (!targetLang) return;
+
+                    // If we are on a post page and have translations map
+                    if (window.postTranslations) {
+                        if (window.postTranslations[targetLang]) {
+                            localStorage.setItem('site_lang', targetLang);
+                            window.location.href = window.postTranslations[targetLang];
+                            return;
+                        } else {
+                            localStorage.setItem('site_lang', targetLang);
+                            const baseUrl = document.body.getAttribute('data-baseurl') || '/';
+                            window.location.href = baseUrl + '?lang=' + targetLang;
+                            return;
+                        }
+                    }
+
+                    // On homepage/grid
+                    applyLang(targetLang);
+                    return;
+                }
+
+                // Newsletter modal trigger listener
+                const nlTrigger = e.target.closest('[data-i18n="nav_newsletter"], [data-open-newsletter], a[href*="newsletter"]');
+                if (nlTrigger) {
+                    e.preventDefault();
+                    window.openNewsletterModal();
+                    return;
+                }
+
+                const closeBtn = e.target.closest('#newsletter-modal-close');
+                if (closeBtn) {
+                    window.closeNewsletterModal();
+                    return;
+                }
+
+                const backdrop = document.getElementById('newsletter-modal');
+                if (e.target === backdrop) {
+                    window.closeNewsletterModal();
+                    return;
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    window.closeNewsletterModal();
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', initLang);
+            initLang();
+        })();
+    </script>
+</body>
+</html>

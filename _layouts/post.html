@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+<div class="hero post-hero" id="post-meta" data-lang="{{ page.lang | default: 'en' }}" data-ref="{{ page.ref }}">
+    <div class="post-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <a href="{{ '/' | relative_url }}" class="back-link" data-i18n="back_home" style="margin-bottom: 0;">&larr; Back to Home</a>
+
+            <!-- Language selector for post -->
+            <div class="lang-selector" style="margin-top: 0;">
+                <button class="lang-btn" data-lang-code="en" title="English" aria-label="English"><span class="flag-icon">🇬🇧</span></button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang-code="pt-br" title="Português (Brasil)" aria-label="Português (Brasil)"><span class="flag-icon">🇧🇷</span></button>
+                <span class="lang-divider">|</span>
+                <button class="lang-btn" data-lang-code="it" title="Italiano" aria-label="Italiano"><span class="flag-icon">🇮🇹</span></button>
+            </div>
+        </div>
+        
+        <article class="post-article">
+            <header class="post-header">
+                <div class="blog-card__labels">
+                    {% for label in page.labels %}
+                    <span class="blog-card__label">{{ label }}</span>
+                    {% endfor %}
+                </div>
+                <h1 class="post-title">{{ page.title }}</h1>
+                <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
+                
+                {% if page.image %}
+                <div class="post-cover-wrapper">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-cover-image" />
+                </div>
+                {% endif %}
+            </header>
+
+            <div class="post-body">
+                {{ content }}
+            </div>
+        </article>
+    </div>
+</div>
+
+<script id="post-translations-data" type="application/json">
+{
+{% assign current_ref = page.ref %}{% if current_ref %}{% assign matching_posts = site.posts | where: "ref", current_ref %}{% for p in matching_posts %}  "{{ p.lang }}": "{{ p.url | relative_url }}"{% unless forloop.last %},{% endunless %}
+{% endfor %}{% endif %}
+}
+</script>
+
+<script>
+  (function() {
+    const meta = document.getElementById('post-meta');
+    if (meta) {
+      window.currentPostLang = meta.getAttribute('data-lang') || 'en';
+    }
+    const dataEl = document.getElementById('post-translations-data');
+    if (dataEl) {
+      try {
+        window.postTranslations = JSON.parse(dataEl.textContent.trim());
+      } catch (e) {
+        window.postTranslations = {};
+      }
+    }
+  })();
+</script>

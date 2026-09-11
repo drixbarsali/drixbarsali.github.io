@@ -1,0 +1,60 @@
+<header class="site-header">
+    <div class="header-container">
+        <!-- Brand: Logo + Name + Subtitle -->
+        <a href="{{ '/' | relative_url }}" class="header-brand">
+            <span class="header-logo">
+                A<img src="{{ '/images/x.png' | relative_url }}" alt="x" class="header-logo-icon">B
+            </span>
+            <div class="header-title-group">
+                <span class="header-name">ADRIANO BARSALI</span>
+                <span class="header-tagline" data-i18n="subtitle">Team Leader | Developer | Pirate</span>
+            </div>
+        </a>
+
+        <!-- Right Side: Navigation & Language Selector in ONE Single Row -->
+        <div class="header-actions">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' or page.url == '/index.html' or include.active == 'home' %}active{% endif %}" data-i18n="nav_home">Home</a>
+                <a href="{{ '/about.html' | relative_url }}" class="nav-link {% if page.url contains 'about' or include.active == 'about' %}active{% endif %}" data-i18n="nav_about">About Me</a>
+                <a href="{{ '/newsletter.html' | relative_url }}" class="nav-link {% if page.url contains 'newsletter' or include.active == 'newsletter' %}active{% endif %}" data-i18n="nav_newsletter">Newsletter</a>
+            </nav>
+
+            <span class="header-divider" aria-hidden="true"></span>
+
+            <div class="lang-selector" aria-label="Language Selector">
+                <button class="lang-btn" data-lang-code="en" title="English" aria-label="English">
+                    <span class="flag-icon">🇬🇧</span>
+                </button>
+                <button class="lang-btn" data-lang-code="it" title="Italiano" aria-label="Italiano">
+                    <span class="flag-icon">🇮🇹</span>
+                </button>
+                <button class="lang-btn" data-lang-code="pt-br" title="Português (Brasil)" aria-label="Português (Brasil)">
+                    <span class="flag-icon">🇧🇷</span>
+                </button>
+            </div>
+
+            <span class="header-divider" aria-hidden="true"></span>
+
+            <div class="theme-selector" role="radiogroup" aria-label="Theme Selector">
+                <button type="button" class="theme-btn" data-theme-btn="dark" aria-label="Dark mode" title="Dark mode">
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button type="button" class="theme-btn" data-theme-btn="light" aria-label="Light mode" title="Light mode">
+                    <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

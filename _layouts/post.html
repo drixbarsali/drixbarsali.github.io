@@ -1,0 +1,150 @@
+---
+layout: default
+---
+
+<div id="reading-progress-bar"></div>
+
+{% include header.html %}
+
+<div class="post-container" id="post-meta" data-lang="{{ page.lang | default: 'en' }}" data-ref="{{ page.ref }}">
+    <a href="{{ '/' | relative_url }}" class="back-link" data-i18n="back_home">&larr; Back to Home</a>
+    
+    <article class="post-article">
+            <header class="post-header">
+                <div class="blog-card__labels">
+                    {% for label in page.labels %}
+                    <span class="blog-card__label">{{ label }}</span>
+                    {% endfor %}
+                </div>
+                <h1 class="post-title">{{ page.title }}</h1>
+                
+                {% assign words = content | number_of_words %}
+                {% assign read_time = words | divided_by: 180 | plus: 1 %}
+                <div class="post-meta-bar">
+                    <span class="post-author">
+                        <img src="{{ '/images/adriano-barsali.png' | relative_url }}" alt="Adriano Barsali" class="post-author__avatar" />
+                        <span class="post-author__name">Adriano Barsali</span>
+                    </span>
+                    <span class="post-meta-dot">•</span>
+                    <span class="post-date">{{ page.date | date: "%B %d, %Y" }}</span>
+                    <span class="post-meta-dot">•</span>
+                    <span class="post-readtime">
+                        ☕ {{ read_time }} {% if page.lang == 'it' %}min di lettura{% elsif page.lang == 'pt-br' %}min de leitura{% else %}min read{% endif %}
+                    </span>
+                </div>
+                
+                {% if page.image %}
+                <div class="post-cover-wrapper">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-cover-image" />
+                </div>
+                {% endif %}
+            </header>
+
+            <div class="post-body">
+                {{ content }}
+            </div>
+
+            <!-- Post Social Share -->
+            <div class="post-share-bar">
+                <span class="post-share-label">
+                    {% if page.lang == 'it' %}Condividi questa riflessione:{% elsif page.lang == 'pt-br' %}Compartilhe esta reflexão:{% else %}Share this post:{% endif %}
+                </span>
+                <div class="post-share-buttons">
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" target="_blank" rel="noopener noreferrer" class="share-btn share-btn--linkedin" aria-label="Share on LinkedIn">
+                        <svg class="share-btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28Z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ page.url | absolute_url }}&via=drixbarsali" target="_blank" rel="noopener noreferrer" class="share-btn share-btn--x" aria-label="Share on X">
+                        <svg class="share-btn-icon" viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>X (Twitter)</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Post Newsletter CTA -->
+            <section class="post-newsletter-cta">
+                <span class="post-newsletter-cta__badge">🏴‍☠️ NEWSLETTER</span>
+                {% if page.lang == 'it' %}
+                <h3 class="post-newsletter-cta__title">Ti è piaciuto questo contenuto? Unisciti alla Ciurma!</h3>
+                <p class="post-newsletter-cta__desc">
+                    Ricevi riflessioni su leadership software, cultura senza ego, aneddoti dal vivo e aggiornamenti sui prossimi talk ed eventi direttamente nella tua email.
+                </p>
+                <form class="newsletter-form" onsubmit="handlePostSubscribe(event, 'it')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Inserisci la tua email..." required>
+                        <button type="submit" class="subscribe-btn">ISCRIVITI 🚀</button>
+                    </div>
+                    <span class="newsletter-trust">🔒 Zero spam. Solo riflessioni autentiche, cancellati con 1 click.</span>
+                    <div class="newsletter-success" style="display: none;">
+                        🎉 Benvenuto a bordo! Ti sei iscritto con successo alla newsletter.
+                    </div>
+                </form>
+                {% elsif page.lang == 'pt-br' %}
+                <h3 class="post-newsletter-cta__title">Gostou deste conteúdo? Junte-se à Tripulação!</h3>
+                <p class="post-newsletter-cta__desc">
+                    Receba reflexões sobre liderança de software, cultura sem ego, vivências reais e novidades sobre os próximos eventos e palestras direto no seu e-mail.
+                </p>
+                <form class="newsletter-form" onsubmit="handlePostSubscribe(event, 'pt-br')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Digite seu e-mail..." required>
+                        <button type="submit" class="subscribe-btn">INSCREVER-SE 🚀</button>
+                    </div>
+                    <span class="newsletter-trust">🔒 Sem spam. Apenas reflexões autênticas, cancele com 1 clique.</span>
+                    <div class="newsletter-success" style="display: none;">
+                        🎉 Bem-vindo a bordo! Você se inscreveu com sucesso na newsletter.
+                    </div>
+                </form>
+                {% else %}
+                <h3 class="post-newsletter-cta__title">Enjoyed this post? Join the Crew!</h3>
+                <p class="post-newsletter-cta__desc">
+                    Get insights on software leadership, ego-free engineering culture, real-world stories, and announcements on upcoming talks straight to your inbox.
+                </p>
+                <form class="newsletter-form" onsubmit="handlePostSubscribe(event, 'en')">
+                    <div class="form-row">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+                        <button type="submit" class="subscribe-btn">SUBSCRIBE 🚀</button>
+                    </div>
+                    <span class="newsletter-trust">🔒 Zero spam. Only authentic insights, unsubscribe in 1 click.</span>
+                    <div class="newsletter-success" style="display: none;">
+                        🎉 Welcome aboard! You have successfully subscribed to the newsletter.
+                    </div>
+                </form>
+                {% endif %}
+            </section>
+        </article>
+    </div>
+
+<script id="post-translations-data" type="application/json">
+{
+{% assign current_ref = page.ref %}{% if current_ref %}{% assign matching_posts = site.posts | where: "ref", current_ref %}{% for p in matching_posts %}  "{{ p.lang }}": "{{ p.url | relative_url }}"{% unless forloop.last %},{% endunless %}
+{% endfor %}{% endif %}
+}
+</script>
+
+<script>
+  (function() {
+    const meta = document.getElementById('post-meta');
+    if (meta) {
+      window.currentPostLang = meta.getAttribute('data-lang') || 'en';
+    }
+    const dataEl = document.getElementById('post-translations-data');
+    if (dataEl) {
+      try {
+        window.postTranslations = JSON.parse(dataEl.textContent.trim());
+      } catch (e) {
+        window.postTranslations = {};
+      }
+    }
+
+    // Reading progress bar
+    window.addEventListener('scroll', function() {
+      const h = document.documentElement;
+      const b = document.body;
+      const st = 'scrollTop';
+      const sh = 'scrollHeight';
+      const percent = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+      const bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = Math.min(100, Math.max(0, percent)) + '%';
+    }, { passive: true });
+  })();
+</script>

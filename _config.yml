@@ -1,0 +1,16 @@
+title: Adriano Barsali
+email: drixbarsali@gmail.com
+description: "Team Leader | Developer | Pirate"
+url: "https://drixbarsali.github.io"
+baseurl: ""
+
+# Permalinks structure
+permalink: /blog/:title/
+
+# Default layout settings
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"

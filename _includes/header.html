@@ -1,0 +1,37 @@
+<header class="site-header">
+    <div class="header-container">
+        <!-- Brand: Logo + Name + Subtitle -->
+        <a href="{{ '/' | relative_url }}" class="header-brand">
+            <span class="header-logo">
+                A<img src="{{ '/images/x.png' | relative_url }}" alt="x" class="header-logo-icon">B
+            </span>
+            <div class="header-title-group">
+                <span class="header-name">ADRIANO BARSALI</span>
+                <span class="header-tagline" data-i18n="subtitle">Team Leader | Developer | Pirate</span>
+            </div>
+        </a>
+
+        <!-- Right Side: Navigation & Language Selector in ONE Single Row -->
+        <div class="header-actions">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <a href="{{ '/' | relative_url }}" class="nav-link {% if page.url == '/' or page.url == '/index.html' or include.active == 'home' %}active{% endif %}" data-i18n="nav_home">Home</a>
+                <a href="{{ '/about.html' | relative_url }}" class="nav-link {% if page.url contains 'about' or include.active == 'about' %}active{% endif %}" data-i18n="nav_about">About Me</a>
+                <a href="{{ '/newsletter.html' | relative_url }}" class="nav-link {% if page.url contains 'newsletter' or include.active == 'newsletter' %}active{% endif %}" data-i18n="nav_newsletter">Newsletter</a>
+            </nav>
+
+            <span class="header-divider" aria-hidden="true"></span>
+
+            <div class="lang-selector" aria-label="Language Selector">
+                <button class="lang-btn" data-lang-code="en" title="English" aria-label="English">
+                    <span class="flag-icon">🇬🇧</span>
+                </button>
+                <button class="lang-btn" data-lang-code="it" title="Italiano" aria-label="Italiano">
+                    <span class="flag-icon">🇮🇹</span>
+                </button>
+                <button class="lang-btn" data-lang-code="pt-br" title="Português (Brasil)" aria-label="Português (Brasil)">
+                    <span class="flag-icon">🇧🇷</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>

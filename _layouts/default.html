@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+   <meta http-equiv="Content-Security-Policy" 
+   content="default-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https:; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https: https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Permissions-Policy"
+        content="accelerometer=(), ambient-light-sensor=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=()">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <link rel="preload" href="{{ '/fonts/Lovelo-Black.otf' | relative_url }}" as="font" type="font/otf" crossorigin>
+    <link rel="stylesheet" href="{{ '/styles/font-family.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/reset.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/styles/style.css' | relative_url }}">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X2WN370E7W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X2WN370E7W');
+</script>
+</head>
+
+<body>
+
+    <main>
+        {{ content }}
+    </main>
+
+</body>
+
+</html>

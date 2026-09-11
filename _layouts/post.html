@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="hero post-hero">
+    <div class="post-container">
+        <a href="{{ '/' | relative_url }}" class="back-link">&larr; Back to Home</a>
+        
+        <article class="post-article">
+            <header class="post-header">
+                <div class="blog-card__labels">
+                    {% for label in page.labels %}
+                    <span class="blog-card__label">{{ label }}</span>
+                    {% endfor %}
+                </div>
+                <h1 class="post-title">{{ page.title }}</h1>
+                <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
+                
+                {% if page.image %}
+                <div class="post-cover-wrapper">
+                    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-cover-image" />
+                </div>
+                {% endif %}
+            </header>
+
+            <div class="post-body">
+                {{ content }}
+            </div>
+        </article>
+    </div>
+</div>

@@ -1,33 +1,340 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline' https:; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https:; frame-ancestors 'self'; base-uri 'self'; form-action 'self';">
-    <meta http-equiv="Permissions-Policy" content="accelerometer=(), ambient-light-sensor=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=()">
-    <title>Chi Sono | Adriano Barsali</title>
-    <link rel="preload" href="fonts/Lovelo-Black.otf" as="font" type="font/otf" crossorigin>
-    <link rel="stylesheet" href="styles/font-family.css">
-    <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="js/components.js" defer></script>
-</head>
-<body>
+---
+layout: default
+title: "About Me"
+permalink: /about.html
+---
 
-<site-header active="about"></site-header>
+{% include header.html active="about" %}
 
-<main>
-    <div class="page-container">
-        <h2 class="page-title">CHI SONO</h2>
-        <div class="page-content">
-            <p>Ciao, sono <strong>Adriano Barsali</strong>. Sono un <em>Creative Developer</em> e <em>Speaker</em> con la passione per il web moderno, le performance e il design d'impatto.</p>
-            <p>Creo esperienze digitali uniche unendo codice pulito, animazioni fluide e architettura scalabile.</p>
+<div class="page-container">
+    <!-- ITALIAN CONTENT -->
+    <div data-lang-block="it" class="glass-card">
+        <div class="about-hero-grid">
+            <img src="{{ '/images/adriano-barsali.png' | relative_url }}" alt="Adriano Barsali" class="about-avatar">
+            <div>
+                <h2 class="page-title" style="margin-bottom: 6px;">Adriano Barsali</h2>
+                <p class="about-role-subtitle">
+                    Team Leader & Senior Frontend Developer
+                </p>
+                <div class="post-body" style="font-size: 14px; line-height: 1.6;">
+                    <p>
+                        Ho iniziato la mia carriera lavorando sull'hardware di macchine interattive, sviluppando fin da subito un approccio pragmatico alla tecnologia e una particolare attenzione ad affidabilità, robustezza e interazione con gli utenti.
+                    </p>
+                    <p>
+                        Negli anni sono passato allo sviluppo web, lavorando su applicazioni di diversa scala e complessità e collaborando con team cross-funzionali durante tutte le fasi del ciclo di sviluppo software.
+                    </p>
+                    <p>
+                        I miei interessi professionali includono code quality, architettura sostenibile e collaborazione efficace nei team di sviluppo, con una particolare attenzione alle lezioni che emergono dai problemi reali incontrati nella costruzione del software.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-highlights">
+            <div class="highlight-box">
+                <h4>⚡ 15+ Anni nel Software</h4>
+                <p>Dall'hardware di macchine interattive alle piattaforme web ed e-commerce ad alte prestazioni.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🌍 3 Lingue Parlate</h4>
+                <p>Portoghese (madrelingua), Italiano (C1) e Inglese (C1) per collaborazioni fluide con team internazionali.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🏴‍☠️ Meno Ego, Più Caffè</h4>
+                <p>Leadership basata su ascolto, sicurezza psicologica, mentoring e crescita continua delle persone.</p>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Competenze & Tecnologie</h3>
+        <div class="skills-container">
+            <span class="skill-badge">Team Management</span>
+            <span class="skill-badge">Technical Analysis</span>
+            <span class="skill-badge">Code Review</span>
+            <span class="skill-badge">Angular (13-19)</span>
+            <span class="skill-badge">Angular Universal</span>
+            <span class="skill-badge">React Native</span>
+            <span class="skill-badge">SAP Spartacus</span>
+            <span class="skill-badge">RxJS</span>
+            <span class="skill-badge">NgRx</span>
+            <span class="skill-badge">Redux / Redux Saga</span>
+            <span class="skill-badge">SCSS</span>
+            <span class="skill-badge">Unit Testing (Jasmine, Karma, Jest)</span>
+            <span class="skill-badge">Fastlane</span>
+            <span class="skill-badge">Web Performance (CLS, INP, FCP)</span>
+            <span class="skill-badge">Git & GitHub</span>
+        </div>
+
+        <h3 class="section-subtitle">Esperienza Lavorativa</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Team Leader / Tech Lead & Senior Developer</span>
+                    <span class="timeline-date">Maggio 2021 - Presente</span>
+                </div>
+                <div class="timeline-company">Red Software System | Italia</div>
+                <p class="timeline-desc">
+                    Inizialmente inserito nello sviluppo di piattaforme e-commerce complesse in ambito cosmetica e profumeria utilizzando Angular e SAP Spartacus. Successivamente promosso a Team Leader, con responsabilità di gestione del team, definizione di piani di crescita, analisi tecnica, code review e ottimizzazione della web performance (CLS, INP, FCP).
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Sviluppatore React Native</span>
+                    <span class="timeline-date">Feb 2021 - Set 2021</span>
+                </div>
+                <div class="timeline-company">MedRecord | Paesi Bassi</div>
+                <p class="timeline-desc">
+                    Sviluppo di applicazioni mobile in ambito sanitario con React Native, SCSS, gestione dello stato con Redux e Redux Saga, e stesura di Unit Test con Jest.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Sviluppatore React Native</span>
+                    <span class="timeline-date">Giu 2019 - Feb 2021</span>
+                </div>
+                <div class="timeline-company">Aesys | Italia</div>
+                <p class="timeline-desc">
+                    Contributo al Progetto Sisal per la realizzazione di app mobile di lotteria e concorsi a premi. Responsabile del deployment automatizzato tramite Fastlane, gestione degli stili e testing.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-meta-grid">
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Istruzione</h3>
+                <p class="about-degree-title"><strong>Laurea in Scienze della Comunicazione</strong></p>
+                <p class="about-degree-sub">Unisa | 2004 - 2008</p>
+            </div>
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Lingue</h3>
+                <p class="about-lang-list">
+                    🇧🇷 Portoghese (Madrelingua)<br>
+                    🇮🇹 Italiano (C1)<br>
+                    🇬🇧 Inglese (C1)
+                </p>
+            </div>
         </div>
     </div>
-</main>
 
-<site-footer></site-footer>
+    <!-- ENGLISH CONTENT -->
+    <div data-lang-block="en" class="glass-card">
+        <div class="about-hero-grid">
+            <img src="{{ '/images/adriano-barsali.png' | relative_url }}" alt="Adriano Barsali" class="about-avatar">
+            <div>
+                <h2 class="page-title" style="margin-bottom: 6px;">Adriano Barsali</h2>
+                <p class="about-role-subtitle">
+                    Team Leader & Senior Frontend Developer
+                </p>
+                <div class="post-body" style="font-size: 14px; line-height: 1.6;">
+                    <p>
+                        I began my career working on interactive machine hardware, developing a pragmatic approach to technology early on with a strong focus on reliability, robustness, and user interaction.
+                    </p>
+                    <p>
+                        Over the years, I transitioned to web development, building applications of varying scale and complexity while collaborating with cross-functional teams across all phases of the software development lifecycle.
+                    </p>
+                    <p>
+                        My professional interests include code quality, sustainable architectures, and effective team collaboration, with a special emphasis on lessons learned from real-world software engineering challenges.
+                    </p>
+                </div>
+            </div>
+        </div>
 
-</body>
-</html>
+        <div class="about-highlights">
+            <div class="highlight-box">
+                <h4>⚡ 15+ Years in Software</h4>
+                <p>From interactive machine hardware to complex, high-performance web and mobile platforms.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🌍 3 Languages Spoken</h4>
+                <p>Portuguese (Native), Italian (C1), and English (C1) for smooth international collaboration.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🏴‍☠️ Less Ego, More Coffee</h4>
+                <p>Leadership rooted in listening, psychological safety, mentoring, and team empowerment.</p>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Skills & Technologies</h3>
+        <div class="skills-container">
+            <span class="skill-badge">Team Management</span>
+            <span class="skill-badge">Technical Analysis</span>
+            <span class="skill-badge">Code Review</span>
+            <span class="skill-badge">Angular (13-19)</span>
+            <span class="skill-badge">Angular Universal</span>
+            <span class="skill-badge">React Native</span>
+            <span class="skill-badge">SAP Spartacus</span>
+            <span class="skill-badge">RxJS</span>
+            <span class="skill-badge">NgRx</span>
+            <span class="skill-badge">Redux / Redux Saga</span>
+            <span class="skill-badge">SCSS</span>
+            <span class="skill-badge">Unit Testing (Jasmine, Karma, Jest)</span>
+            <span class="skill-badge">Fastlane</span>
+            <span class="skill-badge">Web Performance (CLS, INP, FCP)</span>
+            <span class="skill-badge">Git & GitHub</span>
+        </div>
+
+        <h3 class="section-subtitle">Work Experience</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Team Leader / Tech Lead & Senior Developer</span>
+                    <span class="timeline-date">May 2021 - Present</span>
+                </div>
+                <div class="timeline-company">Red Software System | Italy</div>
+                <p class="timeline-desc">
+                    Joined to craft sophisticated e-commerce platforms using Angular 13/19 and SAP Spartacus for leading perfume retailers. Promoted to Team Leader/Tech Lead, taking on team management, career growth plans, technical analysis, code reviews, and Core Web Vitals performance optimization (CLS, INP, FCP).
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">React Native Developer</span>
+                    <span class="timeline-date">Feb 2021 - Sep 2021</span>
+                </div>
+                <div class="timeline-company">MedRecord | Netherlands</div>
+                <p class="timeline-desc">
+                    Developed mobile medical applications using React Native, SCSS, Redux, Redux Saga state management, and Jest unit tests.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">React Native Developer</span>
+                    <span class="timeline-date">Jun 2019 - Feb 2021</span>
+                </div>
+                <div class="timeline-company">Aesys | Italy</div>
+                <p class="timeline-desc">
+                    Contributed to the Sisal Project, delivering lottery mobile apps with a focus on reliability, Fastlane deployment, SCSS styling, and Redux state management.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-meta-grid">
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Education</h3>
+                <p class="about-degree-title"><strong>Bachelor's Degree in Communication Science</strong></p>
+                <p class="about-degree-sub">Unisa | 2004 - 2008</p>
+            </div>
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Languages</h3>
+                <p class="about-lang-list">
+                    🇧🇷 Portuguese (Native)<br>
+                    🇮🇹 Italian (C1)<br>
+                    🇬🇧 English (C1)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PORTUGUESE CONTENT -->
+    <div data-lang-block="pt-br" class="glass-card">
+        <div class="about-hero-grid">
+            <img src="{{ '/images/adriano-barsali.png' | relative_url }}" alt="Adriano Barsali" class="about-avatar">
+            <div>
+                <h2 class="page-title" style="margin-bottom: 6px;">Adriano Barsali</h2>
+                <p class="about-role-subtitle">
+                    Team Leader & Senior Frontend Developer
+                </p>
+                <div class="post-body" style="font-size: 14px; line-height: 1.6;">
+                    <p>
+                        Iniciei minha carreira trabalhando no hardware de máquinas interativas, desenvolvendo desde cedo uma abordagem pragmática da tecnologia e uma atenção especial à confiabilidade, robustez e interação com os usuários.
+                    </p>
+                    <p>
+                        Ao longo dos anos, migrei para o desenvolvimento web, trabalhando em aplicações de diversa escala e complexidade e colaborando com equipes multifuncionais em todas as fases do ciclo de desenvolvimento de software.
+                    </p>
+                    <p>
+                        Meus interesses profissionais incluem qualidade de código, arquiteturas sustentáveis e colaboração eficaz em equipes de desenvolvimento, com foco nas lições aprendidas com os problemas reais da engenharia de software.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-highlights">
+            <div class="highlight-box">
+                <h4>⚡ 15+ Anos em Software</h4>
+                <p>Do hardware de máquinas interativas às plataformas web e e-commerce de alta performance.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🌍 3 Idiomas Fluentes</h4>
+                <p>Português (nativo), Italiano (C1) e Inglês (C1) para colaboração fluida em equipes internacionais.</p>
+            </div>
+            <div class="highlight-box">
+                <h4>🏴‍☠️ Menos Ego, Mais Café</h4>
+                <p>Liderança baseada em escuta, segurança psicológica, mentoria e desenvolvimento contínuo das pessoas.</p>
+            </div>
+        </div>
+
+        <h3 class="section-subtitle">Habilidades & Tecnologias</h3>
+        <div class="skills-container">
+            <span class="skill-badge">Gestão de Equipe</span>
+            <span class="skill-badge">Análise Técnica</span>
+            <span class="skill-badge">Code Review</span>
+            <span class="skill-badge">Angular (13-19)</span>
+            <span class="skill-badge">Angular Universal</span>
+            <span class="skill-badge">React Native</span>
+            <span class="skill-badge">SAP Spartacus</span>
+            <span class="skill-badge">RxJS</span>
+            <span class="skill-badge">NgRx</span>
+            <span class="skill-badge">Redux / Redux Saga</span>
+            <span class="skill-badge">SCSS</span>
+            <span class="skill-badge">Testes Unitários (Jasmine, Karma, Jest)</span>
+            <span class="skill-badge">Fastlane</span>
+            <span class="skill-badge">Otimização de Desempenho (CLS, INP, FCP)</span>
+            <span class="skill-badge">Git & GitHub</span>
+        </div>
+
+        <h3 class="section-subtitle">Experiência Profissional</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Team Leader / Tech Lead & Senior Developer</span>
+                    <span class="timeline-date">Maio 2021 - Presente</span>
+                </div>
+                <div class="timeline-company">Red Software System | Itália</div>
+                <p class="timeline-desc">
+                    Desenvolvimento de plataformas e-commerce complexas usando Angular 13/19 e SAP Spartacus para grandes redes de perfumaria. Promovido a Team Leader/Tech Lead, liderando equipes, planos de desenvolvimento de carreira, análise técnica, revisões de código e otimização de performance web (CLS, INP, FCP).
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Desenvolvedor React Native</span>
+                    <span class="timeline-date">Fev 2021 - Set 2021</span>
+                </div>
+                <div class="timeline-company">MedRecord | Holanda</div>
+                <p class="timeline-desc">
+                    Desenvolvimento de aplicativos médicos móveis com React Native, SCSS, gestão de estado com Redux/Redux Saga e testes unitários com Jest.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="timeline-role">Desenvolvedor React Native</span>
+                    <span class="timeline-date">Jun 2019 - Fev 2021</span>
+                </div>
+                <div class="timeline-company">Aesys | Itália</div>
+                <p class="timeline-desc">
+                    Contribuição no Projeto Sisal no desenvolvimento de aplicativos móveis de loteria e jogos. Responsável por automação de publicação via Fastlane, estilização em SCSS e gestão de estado com Redux Saga.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-meta-grid">
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Formação Acadêmica</h3>
+                <p class="about-degree-title"><strong>Bacharelado em Ciências da Comunicação</strong></p>
+                <p class="about-degree-sub">Unisa | 2004 - 2008</p>
+            </div>
+            <div>
+                <h3 class="section-subtitle" style="margin-top: 0;">Idiomas</h3>
+                <p class="about-lang-list">
+                    🇧🇷 Português (Língua Materna)<br>
+                    🇮🇹 Italiano (C1)<br>
+                    🇬🇧 Inglês (C1)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,26 @@
+title: Adriano Barsali
+email: drixbarsali@gmail.com
+description: "Team Leader | Developer | Pirate"
+url: "https://drixbarsali.github.io"
+baseurl: ""
+
+# Google AdSense
+adsense_client: "ca-pub-6360678037043874"
+# Optional manual ad unit slot IDs from your AdSense dashboard (leave empty to rely on Auto Ads)
+adsense_slot_home: ""
+adsense_slot_post: ""
+
+# Permalinks structure
+permalink: /blog/:title/
+
+# Plugins supported by GitHub Pages for SEO & AdSense crawlers
+plugins:
+  - jekyll-feed
+
+# Default layout settings
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
